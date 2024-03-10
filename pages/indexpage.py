@@ -12,7 +12,7 @@ class IndexResult:
     wrong_login: bool
     session_id: str
 
-class IndexScrapper(BaseScraper[IndexResult]):
+class IndexScraper(BaseScraper[IndexResult]):
     def parse_bytes(self, bs: bytes) -> IndexResult | None:
         res = IndexResult(False, None)
 
