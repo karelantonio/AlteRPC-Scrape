@@ -1,0 +1,147 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- BOCA boca-1.5.14-RPC. Copyright (c) 2003-2020 Cassio Polpo de Campos -->
+<!-- http://www.ime.usp.br/~cassio/boca                                  -->
+<!-- This program is free software: you can redistribute it and/or modify  -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation, either version 3 of the License, or -->
+<!-- (at your option) any later version. A copy of the  -->
+<!-- license can be found with this software or at http://www.gnu.org/licenses/ -->
+<html><head><title>Team's Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel=stylesheet href="../Css.php" type="text/css">
+<script language="javascript" src="../reload.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24621631-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head><body onload="Comecar()" onunload="Parar()"><table border=1 width="100%">
+<tr><td nowrap bgcolor="#aaaaee" align=center><img src="../images/smallballoontransp.png" alt=""><font color="#000000">BOCA</font></td><td bgcolor="#aaaaee" width="99%">
+Username: Exacerbados (site=1)
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/c861dc10b676a5504518a4fe387a2fd0.png" />
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/0b317cbe1e5d0b6ab93bfa1ab4742302.png" />
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/542b114fbd6a329011c8fda162cbee4b.png" />
+</td><td bgcolor="#aaaaee" align=center nowrap>&nbsp;6705d 12h 36 min(s) left&nbsp;</td></tr>
+</table>
+<table border=0 width="100%" align=center>
+ <tr>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=problem.php>Problems</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=run.php>Runs</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=score.php>Score</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=clar.php>Clarifications</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=task.php>Tasks</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=files.php>Backups</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=option.php>Options</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=../index.php>Logout</a></td>
+ </tr>
+</table>
+
+<script language="JavaScript" src="/contests/2023/08/sha256.js"></script>
+<script language="JavaScript" src="/contests/2023/08/hex.js"></script>
+<script language="JavaScript">
+function computeHASH()
+{
+	var username, userdesc, userfull, passHASHo, passHASHn, country;
+	if (document.form1.passwordn1.value != document.form1.passwordn2.value) return;
+	if (document.form1.passwordn1.value == document.form1.passwordo.value) return;
+	username = document.form1.username.value;
+	userdesc = document.form1.userdesc.value;
+	userfull = document.form1.userfull.value;
+    country  = document.form1.country.value;
+
+	passHASHo = js_myhash(js_myhash(document.form1.passwordo.value)+'dsjrnu884u621c0de2h4en0raq');
+	passHASHn = bighexsoma(js_myhash(document.form1.passwordn2.value),js_myhash(document.form1.passwordo.value));
+	document.form1.passwordo.value = '                                                         ';
+	document.form1.passwordn1.value = '                                                         ';
+	document.form1.passwordn2.value = '                                                         ';
+	document.location='option.php?username='+username+'&userdesc='+userdesc+'&userfullname='+userfull+'&passwordo='+passHASHo+'&passwordn='+passHASHn+'&country='+country;
+}
+</script>
+
+<br><br>
+<form name="form1" action="javascript:computeHASH()">
+  <center>
+    <table border="0">
+      <tr> 
+        <td width="35%" align=right>Username:</td>
+        <td width="65%">
+	  <input type="text" readonly name="username" value="exacerbados" size="20" maxlength="20" />
+        </td>
+      </tr>
+      <tr> 
+        <td width="35%" align=right>User Full Name:</td>
+        <td width="65%">
+	  <input type="text" readonly name="userfull" value="Exacerbados" size="50" maxlength="50" />
+        </td>
+      </tr>
+      <tr> 
+        <td width="35%" align=right>User Description:</td>
+        <td width="65%">
+	  <input type="text" name="userdesc" value="IPVCE José Martí" size="50" maxlength="250" />
+        </td>
+      </tr>
+      <tr>
+        <td width="35%" align=right>Country CU</td>
+        <td width="65%">
+			<select name="country" selected="CU"  >
+			<option selected value="CU">CU</option>
+			<option value="ar">Argentina</option>
+			<option value="bo">Bolivia</option>
+			<option value="br">Brazil</option>
+			<option value="cl">Chile</option>
+			<option value="co">Colombia</option>
+			<option value="cr">Costa Rica</option>
+			<option value="cu">Cuba</option>
+			<option value="rd">Dominican Republic</option>
+			<option value="ec">Ecuador</option>
+			<option value="sv">El Salvador</option>
+			<option value="gu">Guatemala</option>
+			<option value="ha">Haiti</option>
+			<option value="ho">Honduras</option>
+			<option value="mx">Mexico</option>
+			<option value="ni">Nicaragua</option>
+			<option value="pa">Panama</option>
+			<option value="py">Paraguay</option>
+			<option value="pe">Peru</option>
+			<option value="ur">Uruguay</option>
+			<option value="ve">Venezuela</option>
+			</select>
+        </td>
+      </tr>
+
+      <tr> 
+        <td width="35%" align=right>Old Password:</td>
+        <td width="65%">
+	  <input type="password" name="passwordo" size="20" maxlength="200" />
+        </td>
+      </tr>
+      <tr> 
+        <td width="35%" align=right>New Password:</td>
+        <td width="65%">
+	  <input type="password" name="passwordn1" size="20" maxlength="200" />
+        </td>
+      </tr>
+      <tr> 
+        <td width="35%" align=right>Retype New Password:</td>
+        <td width="65%">
+	  <input type="password" name="passwordn2" size="20" maxlength="200" />
+        </td>
+      </tr>
+    </table>
+  </center>
+  <center>
+      <input type="submit" name="Submit" value="Send">
+  </center>
+</form>
+
+</body>
+</html>

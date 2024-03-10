@@ -1,0 +1,148 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- BOCA boca-1.5.14-RPC. Copyright (c) 2003-2020 Cassio Polpo de Campos -->
+<!-- http://www.ime.usp.br/~cassio/boca                                  -->
+<!-- This program is free software: you can redistribute it and/or modify  -->
+<!-- it under the terms of the GNU General Public License as published by -->
+<!-- the Free Software Foundation, either version 3 of the License, or -->
+<!-- (at your option) any later version. A copy of the  -->
+<!-- license can be found with this software or at http://www.gnu.org/licenses/ -->
+<html><head><title>Team's Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel=stylesheet href="../Css.php" type="text/css">
+<script language="javascript" src="../reload.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24621631-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head><body onload="Comecar()" onunload="Parar()"><table border=1 width="100%">
+<tr><td nowrap bgcolor="#aaaaee" align=center><img src="../images/smallballoontransp.png" alt=""><font color="#000000">BOCA</font></td><td bgcolor="#aaaaee" width="99%">
+Username: Exacerbados (site=1)
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/c861dc10b676a5504518a4fe387a2fd0.png" />
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/0b317cbe1e5d0b6ab93bfa1ab4742302.png" />
+<img alt="Can be empty" width="10" src="/contests/2023/08/balloons/542b114fbd6a329011c8fda162cbee4b.png" />
+</td><td bgcolor="#aaaaee" align=center nowrap>&nbsp;6705d 12h 50 min(s) left&nbsp;</td></tr>
+</table>
+<table border=0 width="100%" align=center>
+ <tr>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=problem.php>Problems</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=run.php>Runs</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=score.php>Score</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=clar.php>Clarifications</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=task.php>Tasks</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=files.php>Backups</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=option.php>Options</a></td>
+  <td align=center width="12%"><a class=menu style="font-weight:bold" href=../index.php>Logout</a></td>
+ </tr>
+</table>
+<br>
+<table width="100%" border=1>
+ <tr>
+<!--  <td><b>Clar #</b></td>-->
+  <td><b>Time</b></td>
+  <td><b>Problem</b></td>
+<!--  <td><b>Status</b></td>-->
+  <td><b>Question</b></td>
+  <td><b>Answer</b></td>
+ </tr>
+ <tr>
+  <td nowrap>135</td>
+  <td nowrap>G</td>
+  <td>  <textarea name="m0" cols="60" rows="8" readonly>En el caso 1 la respuesta no debería ser 20?
+
+Porque tiene energía 15 entonces podría gastar 5 de energía para llegar a la celda (3, 2) y otros 6 para llegar al tesoro con valor 20 en la celda (4, 2).
+</textarea>
+</td>
+  <td>  <textarea name="a0" cols="60" rows="8" readonly>La respuesta correcta es 20.</textarea>
+</td>
+ </tr>
+ <tr>
+  <td nowrap>154</td>
+  <td nowrap>G</td>
+  <td>  <textarea name="m1" cols="60" rows="8" readonly>En el primer caso de prueba, si Panda comienza en la posición indicada:
+
+0 0 0
+P 0 0
+0 0 10
+0 20 0
+
+puede moverse hacia abajo (costo 6) y luego en diagonal derecha (costo 5), para llegar al tesoro 20. Porqué la respuesta es 10?</textarea>
+</td>
+  <td>  <textarea name="a1" cols="60" rows="8" readonly>La respuesta correcta es 20.</textarea>
+</td>
+ </tr>
+ <tr>
+  <td nowrap>172</td>
+  <td nowrap>G</td>
+  <td>  <textarea name="m2" cols="60" rows="8" readonly>La salida del primer caso de ejemplo está mal</textarea>
+</td>
+  <td>  <textarea name="a2" cols="60" rows="8" readonly>La respuesta correcta es 20.</textarea>
+</td>
+ </tr>
+ <tr>
+  <td nowrap>6</td>
+  <td nowrap>B</td>
+  <td>  <textarea name="m3" cols="60" rows="8" readonly>¿Donde está la descripción de este problema?</textarea>
+</td>
+  <td>  <textarea name="a3" cols="60" rows="8" readonly>En la RPC siempre el problemset completo se encuentra en el problema A.</textarea>
+</td>
+ </tr>
+</table>
+<br><br><center><b>To submit a clarification, just fill in the following fields</b></center>
+<form name="form1" method="post" action="clar.php">
+  <input type=hidden name="confirmation" value="noconfirm" />
+  <center>
+    <table border="0">
+      <tr> 
+        <td width="13%" align=right>Problem:</td>
+        <td width="87%"> 
+          <select name="problem" onclick="Arquivo()">
+<option value="0">General</option>
+<option value="1">A</option>
+<option value="2">B</option>
+<option value="3">C</option>
+<option value="4">D</option>
+<option value="5">E</option>
+<option value="6">F</option>
+<option value="7">G</option>
+<option value="8">H</option>
+<option value="9">I</option>
+<option value="10">J</option>
+<option value="11">K</option>
+<option value="12">L</option>
+<option value="13">M</option>
+	  </select>
+        </td>
+      </tr>
+      <tr> 
+        <td width="13%" align=right>Clarification:</td>
+        <td width="87%">
+          <textarea name="message" cols="60" rows="8" maxlength="2000"></textarea>
+        </td>
+      </tr>
+    </table>
+  </center>
+  <script language="javascript">
+    function conf() {
+      if (confirm("Confirm clarification?")) {
+        document.form1.confirmation.value='confirm';
+      }
+    }
+  </script>
+  <center>
+      <input type="submit" name="Submit" value="Send" onClick="conf()">
+      <input type="reset" name="Submit2" value="Clear">
+  </center>
+</form>
+
+</body>
+</html>
