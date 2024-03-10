@@ -49,6 +49,7 @@ class ClarificationTest(TestCase):
             self.assertTrue( first.response.startswith(second[1]) , first.response)
         #Todo OK
 
+
 class IndexTest(TestCase):
     def test_get_session_id(self):
         scrp = pages.indexpage.IndexScraper()
@@ -68,7 +69,17 @@ class IndexTest(TestCase):
 
 
 class OptionsTest(TestCase):
-    pass
+    def test_options(self):
+        scrp = pages.optionspage.OptionsScraper()
+        res = scrp.parse_file("test_data/options_page.html")
+
+        self.assertEqual(res.username, "exacerbados")
+        self.assertEqual(res.fullname, "Exacerbados")
+        self.assertEqual(res.description, "IPVCE José Martí")
+        self.assertEqual(res.country_code, "CU")
+        self.assertEqual(res.country, "Cuba")
+
+
 
 class ProblemTest(TestCase):
     pass
