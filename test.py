@@ -82,7 +82,17 @@ class OptionsTest(TestCase):
 
 
 class ProblemTest(TestCase):
-    pass
+    def test_fetch_problem_list(self):
+        scrp = pages.problempage.ProblemScraper()
+        res = scrp.parse_file("test_data/problem_page.html")
+        self.assertEqual(res.desc_file, "../filedownload.php?oid=-1&filename=LzhTMjI2bDFFZXhTUFAzWmxtYWc0TDg1SmplVE5SSW91SklSbHFleGVUSWJGYzVjZ3VCN2VDWTFxZThhYXYxQ0lPK0tDUW5RcDUwa1JCZkMxVnhJU2dtV0ZpcjJXMFpUQVQxSDkvU2duUmhMSzVyK3VDMU1Lbm9PYk1McE0wS1pyNXE2bGtNdFcrWW4xdHoyUm9GNnVxT21heHBLTHI4QVp3ejVSdlFmNkZGRFRiL3RRSDJVN2FoVTcweHBYQ1F3&check=eec95c894c74001f2fb6afd588ce8abc7512e19405ea9ced36064e83846d0ceb")
+        self.assertEqual(res.fullnames[0], "Easy-to-Solve Expressions")
+        self.assertEqual(res.names[2], "Fishing")
+        self.assertEqual(len(res.names), 12)
+        self.assertEqual(len(res.basenames), 12)
+        self.assertEqual(len(res.fullnames), 12)
+
+
 
 class RunTest(TestCase):
     pass
