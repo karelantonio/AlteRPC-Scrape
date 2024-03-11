@@ -11,23 +11,26 @@ from typing import List
 from .base import BaseScraper
 
 @dataclass
-class Problems:
-    names: List[str]
-    basenames: List[str]
-    fullnames: List[str]
+class Problem:
+    name: str
+    basename: str
+    fullname: str
+
+@dataclass
+class ProblemList:
+    problems: List[Problem]
     desc_file: str
 
-class ProblemScraper(BaseScraper[Problems]):
-    def parse_bytes(self, data: bytes) -> Problems | None:
-        names = []
-        basenames = []
-        fullnames = []
+class ProblemScraper(BaseScraper[ProblemList]):
+    def parse_bytes(self, data: bytes) -> ProblemList | None:
+        res = []
         desc_file = None
         
         bs = BeautifulSoup(data, "html.parser")
         tables = bs.find_all("table")
         if len(tables) < 3:
-            return Problems(names, basenames, fullnames, desc_file)
+            return ProblemList(res, desc_file)
+        
         table : Tag = tables[2]
         for tr in list(table.find_all("tr"))[1:]:
             tg : Tag = tr
@@ -38,11 +41,10 @@ class ProblemScraper(BaseScraper[Problems]):
             basename = childs[1].getText(strip=True)
             fullname = childs[2].getText(strip=True)
             
-            names.append(name)
-            basenames.append(basename)
-            fullnames.append(fullname)
+            res.append(Problem(name, basename, fullname))
             a = tg.find_all("a")
             if a and len(a)>0:
                 a = a[0]
                 desc_file = a.attrs["href"]
-        return Problems(names, basenames, fullnames, desc_file)
+        
+        return ProblemList(res, desc_file)

@@ -86,12 +86,23 @@ class ProblemTest(TestCase):
         scrp = pages.problempage.ProblemScraper()
         res = scrp.parse_file("test_data/problem_page.html")
         self.assertEqual(res.desc_file, "../filedownload.php?oid=-1&filename=LzhTMjI2bDFFZXhTUFAzWmxtYWc0TDg1SmplVE5SSW91SklSbHFleGVUSWJGYzVjZ3VCN2VDWTFxZThhYXYxQ0lPK0tDUW5RcDUwa1JCZkMxVnhJU2dtV0ZpcjJXMFpUQVQxSDkvU2duUmhMSzVyK3VDMU1Lbm9PYk1McE0wS1pyNXE2bGtNdFcrWW4xdHoyUm9GNnVxT21heHBLTHI4QVp3ejVSdlFmNkZGRFRiL3RRSDJVN2FoVTcweHBYQ1F3&check=eec95c894c74001f2fb6afd588ce8abc7512e19405ea9ced36064e83846d0ceb")
-        self.assertEqual(res.fullnames[0], "Easy-to-Solve Expressions")
-        self.assertEqual(res.basenames[3], "Fishing")
-        self.assertEqual(len(res.names), 13)
-        self.assertEqual(len(res.basenames), 13)
-        self.assertEqual(len(res.fullnames), 13)
+        self.assertEqual(len(res.problems), 13)
 
+    def test_matches_first_problem(self):
+        scrp = pages.problempage.ProblemScraper()
+        res = scrp.parse_file("test_data/problem_page.html")
+        self.assertEqual( len(res.problems), 13 )
+        self.assertEqual( res.problems[0].name, "A" )
+        self.assertEqual( res.problems[0].basename, "Expressions" )
+        self.assertEqual( res.problems[0].fullname, "Easy-to-Solve Expressions" )
+
+    def test_matches_last_problem(self):
+        scrp = pages.problempage.ProblemScraper()
+        res = scrp.parse_file("test_data/problem_page.html")
+        self.assertEqual( len(res.problems), 13 )
+        self.assertEqual( res.problems[12].name, "M" )
+        self.assertEqual( res.problems[12].basename, "Transparency" )
+        self.assertEqual( res.problems[12].fullname, "Transparency" )
 
 
 class RunTest(TestCase):
