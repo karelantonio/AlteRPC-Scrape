@@ -87,15 +87,44 @@ class ProblemTest(TestCase):
         res = scrp.parse_file("test_data/problem_page.html")
         self.assertEqual(res.desc_file, "../filedownload.php?oid=-1&filename=LzhTMjI2bDFFZXhTUFAzWmxtYWc0TDg1SmplVE5SSW91SklSbHFleGVUSWJGYzVjZ3VCN2VDWTFxZThhYXYxQ0lPK0tDUW5RcDUwa1JCZkMxVnhJU2dtV0ZpcjJXMFpUQVQxSDkvU2duUmhMSzVyK3VDMU1Lbm9PYk1McE0wS1pyNXE2bGtNdFcrWW4xdHoyUm9GNnVxT21heHBLTHI4QVp3ejVSdlFmNkZGRFRiL3RRSDJVN2FoVTcweHBYQ1F3&check=eec95c894c74001f2fb6afd588ce8abc7512e19405ea9ced36064e83846d0ceb")
         self.assertEqual(res.fullnames[0], "Easy-to-Solve Expressions")
-        self.assertEqual(res.names[2], "Fishing")
-        self.assertEqual(len(res.names), 12)
-        self.assertEqual(len(res.basenames), 12)
-        self.assertEqual(len(res.fullnames), 12)
+        self.assertEqual(res.basenames[3], "Fishing")
+        self.assertEqual(len(res.names), 13)
+        self.assertEqual(len(res.basenames), 13)
+        self.assertEqual(len(res.fullnames), 13)
 
 
 
 class RunTest(TestCase):
-    pass
+    def test_run_fetch_correct_size_of_elements(self):
+        scrp = pages.runpage.RunScraper()
+        res = scrp.parse_file("test_data/runs_page.html")
+        self.assertIsNotNone(res)
+        self.assertEqual(len(res), 21)
+
+    def test_matches_first_element(self):
+        scrp = pages.runpage.RunScraper()
+        res = scrp.parse_file("test_data/runs_page.html")
+        self.assertIsNotNone(res)
+        self.assertGreaterEqual(len(res), 1)
+        self.assertEqual( res[0].run_id, 450971511 )
+        self.assertEqual( res[0].time, 18 )
+        self.assertEqual( res[0].problem, "A" )
+        self.assertEqual( res[0].language, "C++11" )
+        self.assertEqual( res[0].answer, "NO - Presentation error" )
+        self.assertEqual( res[0].download_url, "../filedownload.php?oid=249408&filename=cDdIRWZrOGxEZ3A1dXByOHdOK0V1ZHNYY0s0STdLOElhSnRWNUh4dlMrbTlFWms2aWJCRXhhek5VSXArZWNZeS9VeW5IMTNFbVRlWU15d0xwOWViR3pwY1JxVXJPVEV3dXovYXFMV3l4U3c9&check=d0aaefd0080ff4f3da0c939993097846d989908e213c82e6bf1c4401026c1920" )
+
+    def test_matches_last_element(self):
+        scrp = pages.runpage.RunScraper()
+        res = scrp.parse_file("test_data/runs_page.html")
+        self.assertIsNotNone(res)
+        self.assertEqual( len(res), 21 )
+        self.assertEqual( res[20].run_id, 619084361 )
+        self.assertEqual( res[20].time, 298 )
+        self.assertEqual( res[20].problem, "F" )
+        self.assertEqual( res[20].language, "C++11" )
+        self.assertEqual( res[20].answer, "NO - Wrong answer" )
+        self.assertEqual( res[20].download_url, "../filedownload.php?oid=252382&filename=cFplMmVKMXBJVkp6aStTMFpuV1lGMnRLZS82eFR4KzZTUWdML1RvS3EwOHowNXZkdWVobGFIekZ1WHZiTEFZM05Dam84ejM1VWw3cDcxM3ZOcmNVby9NdytybVdtMER4cmNBSVVzUnROVE09&check=9fb8f4a01acfd444fb370d1912c73cf697d7b674326392632ac1f601b4aabbf4" )
+
 
 class ScoreTest(TestCase):
     pass
