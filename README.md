@@ -54,7 +54,7 @@ El proyecto está abierto a contribuciones, pero se deben seguir una serie de pa
 * Descargar el archivo de descripción de los problemas
 * Mandar soluciones
 * Descargar códigos enviados
-* Documentar un poco más el código (especialmente ejemplo)
+* Documentar un poco más el código
 * Agregar más ejemplos de uso
 
 ## Licencia
