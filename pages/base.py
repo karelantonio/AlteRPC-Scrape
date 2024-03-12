@@ -1,5 +1,5 @@
-from requests import get, post
-from typing import Generic, TypeVar, Optional
+from requests import get, post, Session, Request, Response
+from typing import Generic, TypeVar, Optional, Any
 
 T = TypeVar("T")
 class BaseScraper(Generic[T]):
@@ -10,11 +10,12 @@ class BaseScraper(Generic[T]):
 
     def __init__(self) -> None:
         super().__init__()
-        self.extra = None
-        self.extra_file = None
-        self.extra_url = None
-        self.extra_request = None
-        self.extra_response = None
+        self.session:Session = None
+        self.extra:Any = None
+        self.extra_file:str = None
+        self.extra_url:str = None
+        self.extra_request:Request = None
+        self.extra_response:Response = None
 
     def parse_file(self, file:str) -> Optional[T]:
         try:
@@ -28,7 +29,10 @@ class BaseScraper(Generic[T]):
     def parse_post(self, url:str, data:bytes, *args, **kws) -> Optional[T]:
         try:
             self.extra_url = url
-            res = post(url, data=data, *args, **kws)
+            if self.session:
+                res = self.session.post(url, data=data, *args, **kws)
+            else:
+                res = post(url, data=data, *args, **kws)
             self.extra_request = res.request
             self.extra_response = res
             if res.content//100 not in [2,3]:
@@ -45,9 +49,12 @@ class BaseScraper(Generic[T]):
 
     def parse_get(self, url:str, *args, **kws) -> Optional[T]:
         try:
-            res = get(url, *args, **kws)
-            if res.content//100 != 2:
-                # No es 2XX
+            if self.session:
+                res = self.session.get(url, *args, **kws)
+            else:
+                res = get(url, *args, **kws)
+            if res.content//100 not in [2,3]:
+                # No es 2XX, 3XX (Se permite redireccionamientos)
                 return None
             return self.parse_bytes(res.content)
         except Exception as err:

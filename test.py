@@ -138,7 +138,48 @@ class RunTest(TestCase):
 
 
 class ScoreTest(TestCase):
-    pass
+    def test_score_fetches_all_items(self):
+        scrp = pages.scorepage.ScoreScraper()
+        res = scrp.parse_file("test_data/score_page.html")
+        self.assertIsNotNone(res)
+        self.assertEqual( len(res), 116 )
+
+    def test_first_element_matches(self):
+        scrp = pages.scorepage.ScoreScraper()
+        res = scrp.parse_file("test_data/score_page.html")
+        self.assertIsNotNone(res)
+        self.assertGreaterEqual( len(res), 1 )
+        self.assertEqual( res[0].num, 1 )
+        #self.assertEqual( res[0].name, "Puede dar problemitas esto :/" )
+        self.assertEqual( res[0].university, "UTN FRSF" )
+        self.assertEqual( res[0].country, "AR" )
+        self.assertEqual( len(res[0].problems), 13 )
+        self.assertEqual( res[0].total, "13 (2676)" )
+
+    def test_5th_element_matches(self):
+        scrp = pages.scorepage.ScoreScraper()
+        res = scrp.parse_file("test_data/score_page.html")
+        self.assertIsNotNone(res)
+        self.assertGreaterEqual( len(res), 4 )
+        self.assertEqual( res[4].num, 5 )
+        self.assertEqual( res[4].name, "Três caras numa moto" )
+        self.assertEqual( res[4].university, "Universidade Federal do Piauí - UFPI" )
+        self.assertEqual( res[4].country, "BR" )
+        self.assertEqual( len(res[4].problems), 11 )
+        self.assertEqual( res[4].total, "11 (2281)" )
+
+    def test_last_element_matches(self):
+        scrp = pages.scorepage.ScoreScraper()
+        res = scrp.parse_file("test_data/score_page.html")
+        self.assertIsNotNone(res)
+        self.assertGreaterEqual( len(res), 1 )
+        self.assertEqual( res[-1].num, 116 )
+        self.assertEqual( res[-1].name, "EpsilonV3" )
+        self.assertEqual( res[-1].university, "UMSA" )
+        self.assertEqual( res[-1].country, "BO" )
+        self.assertEqual( len(res[-1].problems), 0 )
+        self.assertEqual( res[-1].total, "0 (0)" )
+        
 
 if __name__=="__main__":
     from unittest import main
