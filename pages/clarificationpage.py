@@ -14,9 +14,6 @@ class Clarification:
     response:str
 
 class ClarificationScraper(BaseScraper[List[Clarification]]):
-    def __init__(self) -> None:
-        super().__init__()
-
     def parse_bytes(self, data: bytes) -> List[Clarification] | None:
         bs = BeautifulSoup(data, "html.parser")
         res : List[Clarification] = []
